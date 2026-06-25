@@ -1,0 +1,834 @@
+{% extends 'gym/base.html' %}
+{% load static %}
+
+{% block title %}FitZone{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'gym/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'gym/css/about.css' %}">
+<link rel="stylesheet" href="{% static 'gym/css/services.css' %}">
+<link rel="stylesheet" href="{% static 'gym/css/schedule.css' %}">
+<link rel="stylesheet" href="{% static 'gym/css/plans.css' %}">
+<link rel="stylesheet" href="{% static 'gym/css/bmi.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center">
+    <video autoplay loop muted playsinline class="hero-video">
+        <source src="{% static 'gym/img/video.mp4' %}" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="display-1 fw-bold text-uppercase mb-4 hero-title">
+                    Transform Your <span class="text-primary">Body</span>,<br>
+                    Transform Your <span class="text-primary">Life</span>
+                </h1>
+                <p class="lead mb-5 text-secondary hero-subtitle">The only bad workout is the one that
+                    didn't happen. Join FitZone today and start your transformation journey.</p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-5">Join Gym</a>
+                    <a href="{% url 'plans' %}" class="btn btn-outline-light btn-lg px-5">View Plans</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 features-section">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold">Why Choose Us</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Our Best <span class="text-primary">Features</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="glass-card text-center py-5 h-100 transition-hover">
+                    <div class="mb-4">
+                        <i class="fas fa-dumbbell fa-4x text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Modern Equipment</h4>
+                    <p class="text-secondary">Top-tier machines and free weights for all levels.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="glass-card text-center py-5 h-100 transition-hover">
+                    <div class="mb-4">
+                        <i class="fas fa-user-tie fa-4x text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Certified Trainers</h4>
+                    <p class="text-secondary">Expert guidance from professional coaches.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="glass-card text-center py-5 h-100 transition-hover">
+                    <div class="mb-4">
+                        <i class="fas fa-utensils fa-4x text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Diet Guidance</h4>
+                    <p class="text-secondary">Personalized nutrition plans for your goals.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="glass-card text-center py-5 h-100 transition-hover">
+                    <div class="mb-4">
+                        <i class="fas fa-clock fa-4x text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Flexible Timings</h4>
+                    <p class="text-secondary">Open late to fit your busy schedule.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="py-5 stats-section">
+    <div class="container py-4">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-item">
+                    <h2 class="display-4 fw-bold text-primary mb-0">500+</h2>
+                    <p class="text-uppercase text-secondary fw-bold">Members</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-item">
+                    <h2 class="display-4 fw-bold text-primary mb-0">15</h2>
+                    <p class="text-uppercase text-secondary fw-bold">Trainers</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-item">
+                    <h2 class="display-4 fw-bold text-primary mb-0">10</h2>
+                    <p class="text-uppercase text-secondary fw-bold">Years Experience</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-item">
+                    <h2 class="display-4 fw-bold text-primary mb-0">100%</h2>
+                    <p class="text-uppercase text-secondary fw-bold">Motivation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5 story-section">
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Gym Story" class="img-fluid rounded-4 shadow-lg">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <h6 class="text-primary text-uppercase fw-bold mb-3">Our Story</h6>
+                <h2 class="display-5 fw-bold mb-4 text-uppercase">The Evolution Of <span
+                        class="text-primary">Fitness</span></h2>
+                <p class="text-secondary mb-4">Founded in 2026, FitZone started as a small local gym with a big vision.
+                    Over the years, we have grown into one of the most respected fitness centers in the city, helping
+                    thousands of members achieve their health and wellness goals through dedication and expert support.
+                </p>
+
+                <div class="mission-box mb-4">
+                    <h5 class="text-primary fw-bold mb-2">Our Mission</h5>
+                    <p class="mb-0 text-white">"To inspire and empower our community to lead healthier, stronger lives
+                        by providing world-class facilities, expert guidance, and a motivating environment for all
+                        fitness levels."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities Section -->
+<section class="py-5" style="background-color: #0c0c0c;">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold">Inside FitZone</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Our World-Class <span class="text-primary">Facilities</span>
+            </h2>
+        </div>
+        <div class="row">
+            {% for item in gallery %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    <div class="facility-overlay">
+                        <h4 class="fw-bold mb-0">{{ item.title }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-secondary py-4">
+                <p class="mb-0">No facility photos available. Add them in the admin panel!</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% if gallery %}
+        <div class="text-center mt-4">
+            <a href="{% url 'gallery' %}" class="btn btn-outline-primary btn-lg px-5">View All Facilities</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold">Our Offerings</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Professional <span class="text-primary">Services</span></h2>
+        </div>
+        <div class="row">
+            <!-- Weight Training -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon mx-auto">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Weight Training</h3>
+                    <p class="text-secondary">Build muscle and strength with our wide range of free weights and
+                        specialized machines designed for all muscle groups.</p>
+                </div>
+            </div>
+
+            <!-- Cardio Training -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon mx-auto">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Cardio Training</h3>
+                    <p class="text-secondary">Improve your cardiovascular health with our top-of-the-line treadmills,
+                        elliptical trainers, and stationary bikes.</p>
+                </div>
+            </div>
+
+            <!-- Personal Training -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon mx-auto">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Personal Training</h3>
+                    <p class="text-secondary">Get personalized attention and workout plans from our certified experts to
+                        reach your fitness goals faster.</p>
+                </div>
+            </div>
+
+            <!-- Yoga -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon mx-auto">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Yoga</h3>
+                    <p class="text-secondary">Enhance your flexibility, balance, and mental clarity with our expert-led
+                        yoga sessions in a peaceful environment.</p>
+                </div>
+            </div>
+
+            <!-- Diet Planning -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon mx-auto">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Diet Planning</h3>
+                    <p class="text-secondary">Receive expert nutritional guidance and personalized meal plans to
+                        complement your physical training and boost results.</p>
+                </div>
+            </div>
+
+            <!-- Join CTA -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center d-flex flex-column justify-content-center align-items-center"
+                    style="border-style: dashed; background: transparent;">
+                    <h4 class="fw-bold mb-3">Ready to Start?</h4>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule Section -->
+<section id="schedule" class="py-5 schedule-section">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold" style="letter-spacing:4px;">Weekly Timetable</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Workout <span class="text-primary">Schedule</span></h2>
+            <p class="text-secondary mt-2">Train smarter every day of the week</p>
+        </div>
+
+        <div class="schedule-table-wrap">
+            <table class="schedule-premium-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-calendar-alt me-2"></i>Day</th>
+                        <th><i class="fas fa-dumbbell me-2"></i>Workout</th>
+                        <th><i class="fas fa-list-ul me-2"></i>Exercises</th>
+                        <th><i class="fas fa-clock me-2"></i>Time</th>
+                        <th><i class="fas fa-signal me-2"></i>Intensity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Day">
+                            <span class="sched-day-badge">MON</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon"><i class="fas fa-dumbbell"></i></div>
+                                <span>Chest</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Bench Press · Incline Flyes · Push-ups</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Day">
+                            <span class="sched-day-badge">TUE</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon"><i class="fas fa-child"></i></div>
+                                <span>Back</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Deadlifts · Pull-ups · Barbell Rows</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Day">
+                            <span class="sched-day-badge">WED</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon"><i class="fas fa-heartbeat"></i></div>
+                                <span>Cardio</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Treadmill · Cycling · HIIT Intervals</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--medium">Medium</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Day">
+                            <span class="sched-day-badge">THU</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon"><i class="fas fa-hiking"></i></div>
+                                <span>Legs</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Squats · Leg Press · Calf Raises</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Day">
+                            <span class="sched-day-badge">FRI</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon"><i class="fas fa-fist-raised"></i></div>
+                                <span>Arms</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Bicep Curls · Tricep Dips · Forearms</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--medium">Medium</span>
+                        </td>
+                    </tr>
+                    <tr class="sched-row--featured">
+                        <td data-label="Day">
+                            <span class="sched-day-badge sched-day-badge--fire">SAT</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon sched-icon--fire"><i class="fas fa-fire"></i></div>
+                                <span>Full Body</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Compound Lifts · Functional · Core</td>
+                        <td class="sched-time" data-label="Time">6:00 AM – 8:00 PM</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--max">MAX</span></td>
+                    </tr>
+                    <tr class="sched-row--rest">
+                        <td data-label="Day">
+                            <span class="sched-day-badge sched-day-badge--rest">SUN</span>
+                        </td>
+                        <td data-label="Workout">
+                            <div class="sched-workout">
+                                <div class="sched-icon sched-icon--rest"><i class="fas fa-moon"></i></div>
+                                <span>Rest Day</span>
+                            </div>
+                        </td>
+                        <td class="sched-exercises" data-label="Exercises">Recovery · Light Stretching · Hydration</td>
+                        <td class="sched-time" data-label="Time">—</td>
+                        <td data-label="Intensity"><span class="sched-intensity sched-intensity--rest">Rest</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Trainers Preview (Dynamic) -->
+<section id="trainers" class="py-5 trainers-preview">
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-8">
+                <h6 class="text-primary text-uppercase fw-bold">Our Experts</h6>
+                <h2 class="display-5 fw-bold text-uppercase">Meet Our <span class="text-primary">Trainers</span></h2>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{% url 'trainers' %}" class="btn btn-outline-primary">View All Trainers</a>
+            </div>
+        </div>
+        <div class="row">
+            {% for trainer in trainers %}
+            <div class="col-md-4 mb-4">
+                <div class="glass-card text-center p-0 overflow-hidden transition-hover">
+                    <img src="{{ trainer.photo.url }}" class="img-fluid w-100" style="height: 350px; object-fit: cover;"
+                        alt="{{ trainer.name }}">
+                    <div class="p-4">
+                        <h4 class="fw-bold">{{ trainer.name }}</h4>
+                        <p class="text-primary fw-bold text-uppercase mb-0">{{ trainer.specialty }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-secondary text-center">Add trainers in admin to see them here.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Plans Preview (Dynamic) -->
+<section id="plans" class="py-5">
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-8">
+                <h6 class="text-primary text-uppercase fw-bold">Pricing Options</h6>
+                <h2 class="display-5 fw-bold text-uppercase">Membership <span class="text-primary">Plans</span></h2>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{% url 'plans' %}" class="btn btn-outline-primary">View All Plans</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for plan in plans %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div
+                    class="glass-card text-center py-5 plan-card h-100 transition-hover d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="plan-header mb-4">
+                            <h2 class="fw-bold text-uppercase">{{ plan.name }}</h2>
+                            <hr class="w-25 mx-auto border-primary border-2 opacity-100">
+                        </div>
+                        <div class="plan-price-box mb-4">
+                            <h1 class="display-3 fw-bold text-primary mb-0 plan-price">₹{{ plan.price }}</h1>
+                            <p class="text-secondary">{{ plan.duration }}</p>
+                        </div>
+                        <div class="plan-features mb-4 text-secondary">
+                            {{ plan.description|linebreaks }}
+                        </div>
+                    </div>
+                    <div class="d-grid px-4">
+                        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-secondary">
+                <p>No plans available at the moment. Please check back later!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5" style="background-color: #0c0c0c;">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold">Success Stories</h6>
+            <h2 class="display-5 fw-bold text-uppercase">What Our <span class="text-primary">Members Say</span></h2>
+        </div>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="glass-card text-center p-5 position-relative">
+                                <i
+                                    class="fas fa-quote-left fa-3x text-primary opacity-25 position-absolute top-0 start-0 m-4"></i>
+                                <div class="mb-4">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                        alt="Sarah Jenkins" class="rounded-circle border border-primary border-3"
+                                        style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="lead text-secondary mb-4">"FitZone completely changed my perspective on
+                                    fitness. The trainers are incredibly supportive, and the premium equipment makes
+                                    working out something I look forward to every single day!"</p>
+                                <h5 class="fw-bold text-white mb-1">Sarah Jenkins</h5>
+                                <span class="text-primary small text-uppercase">Member since 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="glass-card text-center p-5 position-relative">
+                                <i
+                                    class="fas fa-quote-left fa-3x text-primary opacity-25 position-absolute top-0 start-0 m-4"></i>
+                                <div class="mb-4">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                        alt="Michael Chen" class="rounded-circle border border-primary border-3"
+                                        style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="lead text-secondary mb-4">"I lost 15kg in 6 months thanks to the personal
+                                    training program and diet guidance. The trainers are highly knowledgeable and keep
+                                    you motivated at every step."</p>
+                                <h5 class="fw-bold text-white mb-1">Michael Chen</h5>
+                                <span class="text-primary small text-uppercase">Member since 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="glass-card text-center p-5 position-relative">
+                                <i
+                                    class="fas fa-quote-left fa-3x text-primary opacity-25 position-absolute top-0 start-0 m-4"></i>
+                                <div class="mb-4">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                        alt="David Miller" class="rounded-circle border border-primary border-3"
+                                        style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="lead text-secondary mb-4">"Best gym facility in town, hands down! The
+                                    environment is energetic, the lockers and showers are spotless, and the community is
+                                    like a family."</p>
+                                <h5 class="fw-bold text-white mb-1">David Miller</h5>
+                                <span class="text-primary small text-uppercase">Member since 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- BMI & Calorie Calculator Section -->
+<section id="bmi" class="py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-5">
+                    <h6 class="text-primary text-uppercase fw-bold">Health & Fitness</h6>
+                    <h2 class="display-5 fw-bold text-uppercase">Fitness <span class="text-primary">Assessments</span>
+                    </h2>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <ul class="nav nav-pills nav-justified mb-4 custom-tabs" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-bmi-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-bmi" type="button" role="tab">BMI Calculator</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-calorie-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-calorie" type="button" role="tab">Calorie Calculator</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content mt-5" id="pills-tabContent">
+                    <!-- BMI Tab -->
+                    <div class="tab-pane fade show active" id="pills-bmi" role="tabpanel">
+                        <div class="row align-items-stretch">
+                            <div class="col-lg-7">
+                                <div class="glass-card p-4 p-md-5 h-100">
+                                    <h3 class="fw-bold text-uppercase mb-4">Body Mass <span
+                                            class="text-primary">Index</span></h3>
+                                    <form id="bmiForm">
+                                        <div class="mb-4">
+                                            <label for="weight" class="form-label">Weight (kg)</label>
+                                            <input type="number" step="0.1" class="form-control" id="weight" required
+                                                placeholder="e.g. 70">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="height" class="form-label">Height (cm)</label>
+                                            <input type="number" step="0.1" class="form-control" id="height" required
+                                                placeholder="e.g. 175">
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="button" onclick="calculateBMI()"
+                                                class="btn btn-primary btn-lg">Calculate BMI</button>
+                                        </div>
+                                    </form>
+
+                                    <div id="resultBox" class="mt-4 p-4 rounded-3 d-none text-center bmi-result-box">
+                                        <h3 class="fw-bold mb-2">Your BMI: <span id="bmiValue"
+                                                class="text-primary">0</span></h3>
+                                        <p id="bmiStatus" class="lead fw-bold mb-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 ps-lg-4">
+                                <div class="glass-card p-4 h-100">
+                                    <h4 class="fw-bold mb-4">BMI Categories</h4>
+                                    <table class="table table-dark table-borderless bmi-table mb-0">
+                                        <thead>
+                                            <tr class="text-primary">
+                                                <th>Category</th>
+                                                <th>BMI Range</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Underweight</td>
+                                                <td>&lt; 18.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Normal Weight</td>
+                                                <td>18.5 – 24.9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Overweight</td>
+                                                <td>25.0 – 29.9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Obesity</td>
+                                                <td>&ge; 30.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calorie Tab -->
+                    <div class="tab-pane fade" id="pills-calorie" role="tabpanel">
+                        <div class="row align-items-stretch">
+                            <div class="col-lg-7">
+                                <div class="glass-card p-4 p-md-5 h-100">
+                                    <h3 class="fw-bold text-uppercase mb-4">Daily <span
+                                            class="text-primary">Calories</span></h3>
+                                    <form id="calorieForm">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <label for="age" class="form-label">Age</label>
+                                                <input type="number" class="form-control" id="age" required
+                                                    placeholder="Years">
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <label class="form-label">Gender</label>
+                                                <select class="form-select" id="gender">
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <label for="c-weight" class="form-label">Weight (kg)</label>
+                                                <input type="number" step="0.1" class="form-control" id="c-weight"
+                                                    required placeholder="kg">
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <label for="c-height" class="form-label">Height (cm)</label>
+                                                <input type="number" step="0.1" class="form-control" id="c-height"
+                                                    required placeholder="cm">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="activity" class="form-label">Activity Level</label>
+                                            <select class="form-select" id="activity">
+                                                <option value="1.2">Sedentary (Little or no exercise)</option>
+                                                <option value="1.375">Lightly active (Exercise 1-3 days/week)</option>
+                                                <option value="1.55">Moderately active (Exercise 3-5 days/week)</option>
+                                                <option value="1.725">Active (Exercise 6-7 days/week)</option>
+                                                <option value="1.9">Very active (Hard exercise 6-7 days/week)</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="button" onclick="calculateCalories()"
+                                                class="btn btn-primary btn-lg">Calculate Calories</button>
+                                        </div>
+                                    </form>
+
+                                    <div id="calorieResultBox"
+                                        class="mt-4 p-4 rounded-3 d-none text-center calorie-result-box">
+                                        <h3 class="fw-bold mb-2">Daily Maintenance Calories:</h3>
+                                        <h2 class="display-5 fw-bold text-primary mb-0"><span id="calorieValue">0</span>
+                                            kcal</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 ps-lg-4">
+                                <div class="glass-card p-4 h-100">
+                                    <h4 class="fw-bold mb-4">Quick Goal Guide</h4>
+                                    <ul class="list-unstyled text-secondary">
+                                        <li class="mb-3 d-flex justify-content-between">
+                                            <span>Maintenance</span>
+                                            <span class="text-white fw-bold">TDEE</span>
+                                        </li>
+                                        <li class="mb-3 d-flex justify-content-between">
+                                            <span>Weight Loss</span>
+                                            <span class="text-white fw-bold">TDEE - 500 kcal</span>
+                                        </li>
+                                        <li class="mb-0 d-flex justify-content-between">
+                                            <span>Weight Gain</span>
+                                            <span class="text-white fw-bold">TDEE + 500 kcal</span>
+                                        </li>
+                                    </ul>
+                                    <hr class="border-secondary my-4">
+                                    <p class="small text-muted mb-0">Note: These are estimates based on the Mifflin-St
+                                        Jeor formula. Real results may vary.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5" style="background-color: #0c0c0c;">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold">Have Questions?</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Frequently Asked <span class="text-primary">Questions</span>
+            </h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion custom-accordion" id="faqAccordion">
+                    <!-- Question 1 -->
+                    <div class="accordion-item glass-card p-0 mb-3 border-0">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold py-4 px-4"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="false" aria-controls="collapseOne">
+                                What are the opening hours of FitZone?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary pt-0 px-4 pb-4">
+                                FitZone is open Monday through Saturday from 5:00 AM to 10:00 PM. We are closed on
+                                Sundays to allow our staff and members a day of recovery.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="accordion-item glass-card p-0 mb-3 border-0">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold py-4 px-4"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                Do I need an appointment to consult with a personal trainer?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary pt-0 px-4 pb-4">
+                                Yes, we recommend booking a personal trainer consultation in advance. You can speak with
+                                our front desk or contact us online to set up your initial assessment and goal-setting
+                                session.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="accordion-item glass-card p-0 mb-3 border-0">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold py-4 px-4"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Can I access the gym if I am traveling and just visiting?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary pt-0 px-4 pb-4">
+                                Absolutely! We offer day passes and weekly guest passes for visitors. Please bring a
+                                valid ID when you arrive, and our staff will get you set up immediately.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="accordion-item glass-card p-0 mb-3 border-0">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold py-4 px-4"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">
+                                Is there a cancellation fee for membership plans?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary pt-0 px-4 pb-4">
+                                We offer flexible terms. Monthly plans can be cancelled with a 30-day notice without any
+                                penalty fees. Yearly plans offer a discounted rate and cannot be cancelled mid-term
+                                without a partial cancellation fee.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'gym/js/bmi.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+/* Plans Page Custom Styles */
+.plan-card {
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+}
+
+.plan-price {
+    text-shadow: 0 0 10px rgba(255, 77, 5, 0.4);
+}

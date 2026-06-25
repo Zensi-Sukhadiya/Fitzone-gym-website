@@ -1,0 +1,13 @@
+/* Trainers Page Custom Styles */
+.trainer-card {
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover {
+    transform: scale(1.02);
+}
+
+.trainer-img {
+    height: 350px;
+    object-fit: cover;
+}

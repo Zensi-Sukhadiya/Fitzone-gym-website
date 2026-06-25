@@ -1,0 +1,33 @@
+{% extends 'gym/base.html' %}
+{% load static %}
+{% block title %}FitZone{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'gym/css/trainers.css' %}">
+{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-uppercase">Our <span class="text-primary">Trainers</span></h1>
+        </div>
+        <div class="row">
+            {% for trainer in trainers %}
+            <div class="col-md-4 mb-4">
+                <div class="glass-card text-center p-0 overflow-hidden trainer-card">
+                    <img src="{{ trainer.photo.url }}" class="img-fluid w-100 trainer-img" alt="{{ trainer.name }}">
+                    <div class="p-4">
+                        <h3 class="fw-bold">{{ trainer.name }}</h3>
+                        <p class="text-primary fw-bold">{{ trainer.specialty }}</p>
+                        <p class="text-secondary">{{ trainer.experience }} Years Experience</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-secondary">
+                <p>No trainers added yet. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,307 @@
+/* ============================================================
+   Premium Schedule Table — Fully Optimized
+   ============================================================ */
+
+.schedule-section {
+    background: linear-gradient(135deg, #05090f 0%, #080e18 60%, #050a10 100%);
+    position: relative;
+}
+
+.schedule-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(33, 150, 243, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Table Wrapper ─────────────────────────────────────── */
+/* Fix 2: Reduced max-width + centered */
+.schedule-table-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Fix 6: Glassmorphism */
+    backdrop-filter: blur(10px);
+    background: rgba(10, 20, 40, 0.6);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(33, 150, 243, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ── Table Base ────────────────────────────────────────── */
+.schedule-premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+.schedule-premium-table thead tr {
+    background: linear-gradient(90deg, rgba(33, 150, 243, 0.2), rgba(0, 212, 255, 0.07));
+    border-bottom: 2px solid rgba(33, 150, 243, 0.4);
+}
+
+.schedule-premium-table thead th {
+    padding: 20px 24px;
+    color: #2196f3;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    white-space: nowrap;
+}
+
+/* ── Body Rows ─────────────────────────────────────────── */
+.schedule-premium-table tbody tr {
+    border-bottom: 1px solid rgba(33, 150, 243, 0.07);
+    /* Fix 3: Smooth hover transition */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-premium-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Fix 3: Hover effect */
+.schedule-premium-table tbody tr:hover {
+    background: rgba(0, 140, 255, 0.08);
+    box-shadow: inset 3px 0 0 #2196f3;
+}
+
+.schedule-premium-table tbody td {
+    padding: 20px 24px;
+    vertical-align: middle;
+    color: #fff;
+}
+
+/* ── Day Badge ─────────────────────────────────────────── */
+.sched-day-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #2196f3;
+    background: rgba(33, 150, 243, 0.1);
+    border: 1px solid rgba(33, 150, 243, 0.3);
+    border-radius: 8px;
+    padding: 6px 14px;
+    min-width: 52px;
+    text-align: center;
+}
+
+.sched-day-badge--fire {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.12);
+    border-color: rgba(0, 212, 255, 0.45);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.sched-day-badge--rest {
+    color: #6c757d;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Workout cell (icon + label) ───────────────────────── */
+.sched-workout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sched-workout span {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.sched-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(33, 150, 243, 0.1);
+    border: 1px solid rgba(33, 150, 243, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: #2196f3;
+    flex-shrink: 0;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-premium-table tbody tr:hover .sched-icon {
+    background: rgba(33, 150, 243, 0.22);
+    transform: scale(1.12) rotate(-5deg);
+    box-shadow: 0 0 16px rgba(33, 150, 243, 0.35);
+}
+
+.sched-icon--fire {
+    color: #00e676;
+    background: rgba(0, 230, 118, 0.1);
+    border-color: rgba(0, 230, 118, 0.3);
+}
+
+.sched-icon--rest {
+    color: #6c757d;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Fix 1: Brighter exercise text */
+.sched-exercises {
+    color: #cfd8e3 !important;
+    font-size: 0.88rem;
+}
+
+/* ── Time ──────────────────────────────────────────────── */
+.sched-time {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* ── Intensity Badges — Fix 4: Color-coded ─────────────── */
+.sched-intensity {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 5px 14px;
+    white-space: nowrap;
+}
+
+/* HIGH → warm orange-red */
+.sched-intensity--high {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.35);
+}
+
+/* MEDIUM → golden yellow */
+.sched-intensity--medium {
+    color: #f4b400;
+    background: rgba(244, 180, 0, 0.1);
+    border: 1px solid rgba(244, 180, 0, 0.3);
+}
+
+/* MAX → neon green with pulse */
+.sched-intensity--max {
+    color: #00e676;
+    background: rgba(0, 230, 118, 0.1);
+    border: 1px solid rgba(0, 230, 118, 0.4);
+    box-shadow: 0 0 12px rgba(0, 230, 118, 0.25);
+    animation: pulse-green 2.5s ease-in-out infinite;
+}
+
+/* REST → muted grey */
+.sched-intensity--rest {
+    color: #6c757d;
+    background: rgba(108, 117, 125, 0.1);
+    border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+/* ── Special Rows ──────────────────────────────────────── */
+.sched-row--featured {
+    background: rgba(0, 230, 118, 0.03);
+}
+
+.sched-row--featured:hover {
+    background: rgba(0, 230, 118, 0.07) !important;
+    box-shadow: inset 3px 0 0 #00e676 !important;
+}
+
+.sched-row--rest {
+    opacity: 0.65;
+}
+
+.sched-row--rest:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
+    opacity: 1;
+    box-shadow: inset 3px 0 0 #6c757d !important;
+}
+
+/* ── Animations ────────────────────────────────────────── */
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 230, 118, 0.2); }
+    50%       { box-shadow: 0 0 20px rgba(0, 230, 118, 0.55); }
+}
+
+/* ── Fix 5: Mobile Card Layout (below 768px) ───────────── */
+@media (max-width: 768px) {
+
+    .schedule-table-wrap {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .schedule-premium-table,
+    .schedule-premium-table thead,
+    .schedule-premium-table tbody,
+    .schedule-premium-table th,
+    .schedule-premium-table td,
+    .schedule-premium-table tr {
+        display: block;
+    }
+
+    /* Hide table header on mobile */
+    .schedule-premium-table thead {
+        display: none;
+    }
+
+    /* Each row becomes a card */
+    .schedule-premium-table tbody tr {
+        background: rgba(10, 20, 40, 0.7);
+        border: 1px solid rgba(33, 150, 243, 0.12);
+        border-radius: 16px;
+        margin-bottom: 14px;
+        padding: 18px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .schedule-premium-table tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(33, 150, 243, 0.15);
+    }
+
+    .schedule-premium-table tbody td {
+        padding: 4px 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Label prefix using data-label attribute */
+    .schedule-premium-table tbody td::before {
+        content: attr(data-label);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(33, 150, 243, 0.6);
+        min-width: 80px;
+        flex-shrink: 0;
+    }
+
+    .sched-exercises {
+        min-width: unset;
+    }
+
+    .sched-row--featured,
+    .sched-row--rest {
+        opacity: 1;
+    }
+}

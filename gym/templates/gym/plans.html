@@ -1,0 +1,41 @@
+{% extends 'gym/base.html' %}
+{% load static %}
+{% block title %}FitZone{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'gym/css/plans.css' %}">
+{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-uppercase">Membership <span class="text-primary">Plans</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            {% for plan in plans %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="glass-card text-center py-5 plan-card">
+                    <div class="plan-header mb-4">
+                        <h2 class="fw-bold text-uppercase">{{ plan.name }}</h2>
+                        <hr class="w-25 mx-auto border-primary border-2 opacity-100">
+                    </div>
+                    <div class="plan-price-box mb-4">
+                        <h1 class="display-3 fw-bold text-primary mb-0 plan-price">₹{{ plan.price }}</h1>
+                        <p class="text-secondary">{{ plan.duration }}</p>
+                    </div>
+                    <div class="plan-features mb-4">
+                        {{ plan.description|linebreaks }}
+                    </div>
+                    <div class="d-grid px-4">
+                        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-secondary">
+                <p>No plans available at the moment. Please check back later!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

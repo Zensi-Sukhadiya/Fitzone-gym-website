@@ -1,0 +1,120 @@
+/* Blog Page Custom Styles */
+.blog-card {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 77, 5, 0.15);
+}
+
+.blog-img-wrapper {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img {
+    transform: scale(1.1);
+}
+
+.blog-category {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.video-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 77, 5, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(255, 77, 5, 0.5);
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 15px;
+}
+
+.blog-meta span {
+    margin-right: 15px;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: #a0a0a0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Detail Page */
+.blog-detail-header {
+    padding: 100px 0 50px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/gym/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.blog-content {
+    line-height: 1.8;
+    color: #d0d0d0;
+    font-size: 1.1rem;
+}
+
+.blog-content h2,
+.blog-content h3 {
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.blog-content p {
+    margin-bottom: 25px;
+}
+
+.blog-sidebar-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+}

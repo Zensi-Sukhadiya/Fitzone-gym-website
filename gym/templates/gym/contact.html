@@ -1,0 +1,183 @@
+{% extends 'gym/base.html' %}
+{% load static %}
+{% block title %}FitZone{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'gym/css/contact.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'gym/js/contact.js' %}"></script>
+{% if messages %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+    });
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row align-items-stretch">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h1 class="display-4 fw-bold text-uppercase mb-4">Get In <span class="text-primary">Touch</span></h1>
+                <p class="text-secondary mb-5">Have questions about our plans or facilities? Drop us a message and we'll
+                    get back to you as soon as possible.</p>
+
+                <div class="glass-card mb-4 contact-info-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-map-marker-alt text-primary fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-0">Location</h5>
+                            <p class="text-secondary mb-0">123 Fitness Ave, Iron City</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card mb-4 contact-info-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-phone text-primary fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-0">Phone</h5>
+                            <p class="text-secondary mb-0">+1 234 567 890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card contact-info-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-envelope text-primary fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-0">Email</h5>
+                            <p class="text-secondary mb-0">info@fitzone.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mt-lg-5 pt-lg-2">
+                <div class="glass-card p-4 p-md-5">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form action="{% url 'contact' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control contact-form-input" id="name" name="name" required
+                                placeholder="John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control contact-form-input" id="email" name="email" required
+                                placeholder="john@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control contact-form-input" id="message" name="message" rows="5"
+                                required placeholder="How can we help you?"></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps Section -->
+<section class="pb-5">
+    <div class="container pb-5">
+
+        <!-- Section Header -->
+        <div class="text-center mb-4">
+            <h6 class="text-primary text-uppercase fw-bold" style="letter-spacing:4px;">Find Us</h6>
+            <h2 class="display-5 fw-bold text-uppercase">Our <span class="text-primary">Location</span></h2>
+            <p class="text-secondary mt-2">We are located in the heart of Rajkot, Gujarat — easy to find and easier to love.</p>
+        </div>
+
+        <!-- Info Strip above map -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="glass-card p-3 d-flex align-items-center gap-3">
+                    <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,77,5,0.1);border:1px solid rgba(255,77,5,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <i class="fas fa-map-marker-alt text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="mb-0 small text-secondary">Address</p>
+                        <p class="mb-0 fw-semibold" style="font-size:0.9rem;">Rajkot, Gujarat, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-3 d-flex align-items-center gap-3">
+                    <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,77,5,0.1);border:1px solid rgba(255,77,5,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <i class="fas fa-clock text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="mb-0 small text-secondary">Opening Hours</p>
+                        <p class="mb-0 fw-semibold" style="font-size:0.9rem;">Mon – Sat: 5:00 AM – 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-3 d-flex align-items-center gap-3">
+                    <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,77,5,0.1);border:1px solid rgba(255,77,5,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <i class="fas fa-directions text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="mb-0 small text-secondary">Navigate</p>
+                        <a href="https://maps.google.com/?q=Rajkot,Gujarat,India"
+                           target="_blank" rel="noopener"
+                           class="mb-0 fw-semibold text-primary text-decoration-none" style="font-size:0.9rem;">
+                            Get Directions →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Embed — Rajkot, Gujarat -->
+        <div class="glass-card overflow-hidden p-0 map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59270.80635925701!2d70.7368988!3d22.3038945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca2b25720c3f%3A0x8ac64432a3253f8f!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="480"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="FitZone Gym Location - Rajkot, Gujarat">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card border-0">
+            <div class="modal-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-primary display-1"></i>
+                </div>
+                <h2 class="fw-bold mb-3">Thank You!</h2>
+                <p class="text-secondary mb-4">Your message has been successfully sent. Our team will get back to you
+                    shortly.</p>
+                <button type="button" class="btn btn-primary px-5" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
